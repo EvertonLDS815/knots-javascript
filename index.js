@@ -8,7 +8,7 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
-const Knots = require("./model/knots");
+const Knots = require("./model/No");
 
 connetToDb();
 
