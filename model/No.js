@@ -27,4 +27,4 @@ const knotsSchema = new Schema({
   },
 });
 
-module.exports = mongoose.model("Knots", knotsSchema);
+module.exports = mongoose.model("No", knotsSchema);

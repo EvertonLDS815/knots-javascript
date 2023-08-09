@@ -8,25 +8,25 @@ const cors = require("cors");
 
 app.use(express.json());
 app.use(cors());
-const Knots = require("./model/No");
+const No = require("./model/No");
 
 connetToDb();
 
 app.get("/", async (req, res) => {
-  const knots = await Knots.find();
+  const knots = await No.find();
   res.json(knots);
 });
 
 app.post("/ins", async (req, res) => {
   const newKnots = req.body;
-  await Knots.create(newKnots);
+  await KNonots.create(newKnots);
 
   res.status(201).json(newKnots);
 });
 app.put("/ins/:id", async (req, res) => {
   const { id } = req.params;
   const { name, nivel, type, linkImage, linkVideo, description } = req.body;
-  await Knots.findByIdAndUpdate(id, {
+  await No.findByIdAndUpdate(id, {
     name,
     nivel,
     type,
@@ -39,7 +39,7 @@ app.put("/ins/:id", async (req, res) => {
 });
 app.delete("/ins/:id", async (req, res) => {
   const { id } = req.params;
-  await Knots.findByIdAndDelete(id);
+  await No.findByIdAndDelete(id);
 
   res.sendStatus(204);
 });
