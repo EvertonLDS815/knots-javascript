@@ -7,9 +7,14 @@ const knotsSchema = new Schema({
     type: String,
     require: true,
   },
+  lastName: {
+    type: String,
+    require: true,
+  },
   nivel: {
     type: String,
     require: true,
+    default: 'Básico'
   },
   type: {
     type: String,
