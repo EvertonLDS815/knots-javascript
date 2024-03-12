@@ -29,13 +29,13 @@ app.get('/no/:id', async (req, res) => {
   
     const knots = await No.findById(id);
     if (!knots) {
-      return res.status(404).json({ error: 'Produto não encontrado' });
+      throw new Error('Nó não encontrado!');
     }
     return res.json(knots);
     
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Erro interno do servidor' });
+  } catch (err) {
+    console.error(err);
+    return res.status(404).json({ error: err.message});
   }
 });
 
